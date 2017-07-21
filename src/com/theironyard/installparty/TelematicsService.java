@@ -46,6 +46,7 @@ public class TelematicsService {
        try {
            System.out.println(json);
            VehicleInfo vi = mapper.readValue(json, VehicleInfo.class);
+
        } catch (IOException e) {
            e.printStackTrace();
        }
