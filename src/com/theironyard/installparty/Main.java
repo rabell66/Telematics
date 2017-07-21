@@ -1,27 +1,23 @@
 package com.theironyard.installparty;
 
+import com.sun.tools.javadoc.JavaScriptScanner;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-//        double consumption = tanner.nextInt();
-//        double lastOilChange = tanner.nextInt();
-//        double engineSize = tanner.nextInt();
-
         VehicleInfo vehicleInfo = new VehicleInfo();
+        TelematicsService telematicsService = new TelematicsService();
         vehicleInfo.setVIN(( promptForInt("Enter VIN number:")));
-        System.out.println(vehicleInfo.VIN);
-//        vehicleInfo.setConsumption( promptForDouble("How much gas was used?"));
-//        vehicleInfo.getEngineSize(promptForDouble("What is the engine size?"));
-//        vehicleInfo.getLastOilChange(promptForDouble("Odometer reading at last oil change?"));
-//        vehicleInfo.getOdomenter(promptForDouble("Current Odomenter reading?"))
+        vehicleInfo.setOdomenter(promptForDouble("Current Odomenter reading?"));
+        vehicleInfo.setConsumption(promptForDouble("How many gallons were used?"));
+        vehicleInfo.setLastOilChange(promptForDouble("Odometer reading at last oil change?"));
+        vehicleInfo.setEngineSize(promptForDouble("What is the engine size in litres?"));
 
 
-
-
-
+        telematicsService.report(vehicleInfo);
 
 
     }
@@ -33,4 +29,13 @@ public class Main {
         return answer;
 
     }
+
+    private static double promptForDouble(String s){
+        Scanner tanner = new Scanner(System.in);
+        System.out.println(s);
+        double answer = tanner.nextDouble();
+        return answer;
+
+    }
+
 }
