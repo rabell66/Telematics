@@ -3,10 +3,10 @@ package com.theironyard.installparty;
 public class VehicleInfo {
 
     int VIN;
-    double odomenter;
-    double consumption;
-    double lastOilChange;
-    double engineSize;
+    private double odometer;
+    private double consumption;
+    private double lastOilChange;
+    private double engineSize;
 
 
     public int getVIN() {
@@ -17,12 +17,12 @@ public class VehicleInfo {
         this.VIN = VIN;
     }
 
-    public double getOdomenter() {
-        return odomenter;
+    public double getOdometer() {
+        return odometer;
     }
 
     public void setOdomenter(double odomenter) {
-        this.odomenter = odomenter;
+        this.odometer = odomenter;
     }
 
     public double getConsumption() {
@@ -47,5 +47,9 @@ public class VehicleInfo {
 
     public void setEngineSize(double engineSize) {
         this.engineSize = engineSize;
+    }
+
+    public double mPG(){
+        return odometer/consumption;
     }
 }
